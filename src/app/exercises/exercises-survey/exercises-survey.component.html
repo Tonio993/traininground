@@ -1,0 +1,26 @@
+<div class="page">
+  <div class="page-container">
+    <div class="add-item-zone"
+          (click)="onQuestionInsert(0)">
+        <div class="add-item-line"></div>
+    </div>
+    <ng-container *ngFor="let question of questionList; let idx=index; let first=first">
+      <div @items>
+        <app-survey-item [title]="'Domanda n°' + (idx+1)"
+                          [(question)]="question.question"
+                          [(answers)]="question.answers"
+                          [(openAnswer)]="question.openAnswer"
+                          (delete)="onQuestionDelete(idx)">
+        </app-survey-item>
+        <div class="add-item-zone"
+              (click)="onQuestionInsert(idx+1)">
+          <div class="add-item-line"></div>
+        </div>
+      </div>
+    </ng-container>
+    <div class="save-button"
+          (click)="onSave()">
+      Salva
+    </div>
+  </div>
+</div>

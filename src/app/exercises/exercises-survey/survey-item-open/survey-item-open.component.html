@@ -1,0 +1,20 @@
+<div class="page">
+  <div class="page-container">
+      <ng-container *ngFor="let question of questionList; let idx=index; let first=first">
+        <div *ngIf="first"
+             class="add-item-zone"
+             (click)="questionList.splice(0, 0, {})">
+             <div class="add-item-line"></div>
+        </div>
+        <app-survey-item [title]="'Domanda n°' + (idx+1)"
+                         [(question)]="question.question"
+                         [(answers)]="question.answers"
+                         (delete)="onQuestionDelete(idx)">
+        </app-survey-item>
+        <div class="add-item-zone"
+             (click)="questionList.splice(idx+1, 0, {})">
+          <div class="add-item-line"></div>
+        </div>
+      </ng-container>
+  </div>
+</div>

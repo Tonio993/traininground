@@ -1,0 +1,19 @@
+<tg-card>
+  <tg-card-header [headerTitle]="title">
+    <tg-button color="critical"
+               icon="fa fa-times"
+               (click)="delete.emit()">
+    </tg-button>
+  </tg-card-header>
+  <tg-card-content>
+    <p>Domanda</p>
+    <tg-input [(ngModel)] = "question" placeholder="Inserisci il testo della domanda..."></tg-input>
+    <p>Risposte</p>
+    <tg-input-list [(inputList)]="answers"></tg-input-list>
+    <tg-input *ngIf="openAnswer.value"
+                  readonly="true"
+                  placeholder="Altro...">
+    </tg-input>
+    <tg-checkbox [(checked)]="openAnswer" label="Inserisci casella Altro..."></tg-checkbox>
+  </tg-card-content>
+</tg-card>

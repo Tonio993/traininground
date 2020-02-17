@@ -1,0 +1,7 @@
+<div class="dnd-list">
+  <button (click)="addItem()">Insert</button>
+  <div @items
+       *ngFor="let item of items">
+    Item {{item}}
+  </div>
+</div>
