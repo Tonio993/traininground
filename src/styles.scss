@@ -1,0 +1,22 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css?family=Orbitron:500,700');
+@import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Montserrat;
+  height: 100%;
+}
+
+.container {
+  margin: 8px;
+}
