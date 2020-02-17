@@ -1,0 +1,9 @@
+<tg-input [(ngModel)]="insertValue"></tg-input>
+<tg-button (click)="onInsert(insertValue)">Aggiungi</tg-button> 
+<tg-button color="critical" (click)="onDelete()">Elimina</tg-button>
+<div style="display:flex;flex-direction:column;padding:10px">
+  <tg-dropdown [items]="items" [(selected)]="selected" placeholder="Select..." unselectedLabel="No selection">
+  </tg-dropdown>
+  <tg-list style="height:300px" [items]="items" [customListItemTemplate]="aaa" [(selection)]="selection" search="true" selectionMode="multiple"></tg-list>
+  <!-- <ng-template let-item #aaa>{{item}} : <tg-input></tg-input></ng-template> -->
+</div>
