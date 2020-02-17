@@ -1,0 +1,9 @@
+<svg:circle
+  class = "draggable-dot"
+  [attr.cx]="position.x"
+  [attr.cy]="position.y"
+  r="20"
+  (mousedown)="onMousedown($event)"
+  (mouseup)="onMouseup()"
+  (drag)="onMousemove($event)"
+/>

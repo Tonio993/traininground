@@ -1,0 +1,14 @@
+<div class="input-group">
+  <input class="with-button"
+         [type]="type"
+         [(ngModel)]="value"
+         (ngModelChange)="inputValue = $event"
+         [ngClass]="{'has-delete-button' : hasDeleteButton}"
+         [placeholder] = "placeholder? placeholder : ''"
+         [readonly]="readonly">
+  <div *ngIf="hasDeleteButton"
+       class="delete-button"
+       (click)="delete.emit()">
+    <i class="fa fa-times"></i>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="page" appBackground>
+  <div class="login-panel">
+    <div class="login-panel__header">
+      <p>TrainingGround</p>
+    </div>
+    <div class="login-panel__body">
+      <span>{{ (auth.user | async)?.email }}</span>
+      <p class="login-label">Email:</p>
+      <tg-input #usr type="email" class="login-input"></tg-input>
+      <p class="login-label">Password:</p>
+      <tg-input #pwd type="password" class="login-input"></tg-input>
+      <tg-button (click)="onLogin(usr.inputValue, pwd.inputValue)">Login</tg-button>
+      <tg-button (click)="auth.emailSignUp(email, password)">Signup</tg-button>
+      <tg-button (click)="auth.emailSignOut()">Logout</tg-button>
+    </div>
+  </div>
+</div>

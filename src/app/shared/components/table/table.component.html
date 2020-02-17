@@ -1,0 +1,16 @@
+<table class="table-main">
+  <tr class="table-header">
+    <th *ngFor="let column of tableSetting; index as idx" [style.gridColumn]="idx">
+      {{column.label}}
+    </th>
+  </tr>
+  <tr class="table-row"
+      *ngFor="let row of tableData"
+      [ngClass]="{selected: row == tableSelected}"
+      (click)="onRowSelect(row)"
+      >
+    <td *ngFor="let column of tableSetting" [width]="'100px'">
+      {{row[column.field]}}
+    </td>
+  </tr>
+</table>

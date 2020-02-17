@@ -1,0 +1,11 @@
+<svg
+  (mousemove)="onMousemove($event)"
+  (mousedown)="onMousedown($event)"
+  (dblclick)="onDoubleClick($event)"
+  (mouseup)="onMouseup()"
+  (mouseleave)="onMouseleave()"
+  (contextmenu)="false"
+  width="100%"
+  height="100%">
+  <svg:g draggable-dot *ngFor="let dot of dots" [position]="dot" (delete)="onDelete(dot.id)"></g>
+</svg>

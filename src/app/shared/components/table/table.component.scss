@@ -1,0 +1,66 @@
+$main-colors: (
+  main: #444,
+  secondary: #fa923f
+);
+
+$colors: (
+  header-text: map-get($main-colors, secondary),
+  header-background: map-get($main-colors, main),
+  row-text: black,
+  row-background: lighten(map-get($main-colors, main), 40%),
+  row-selected-text: text,
+  row-selected-background: map-get($main-colors, secondary),
+  row-active-background: darken(map-get($main-colors, secondary), 5%)
+);
+
+$fonts: (
+  header-font: Orbitron
+);
+
+table {
+  border: 2px solid map-get($main-colors, main);
+  border-collapse: collapse;
+  user-select: none;
+}
+
+tr, th, td {
+  border: 2px solid map-get($main-colors, main);
+  border-color: map-get($colors, header-background);
+  padding: 0.2rem 0.5rem;
+  font-family: Orbitron;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+th {
+  color: map-get($colors, header-text);
+  background: map-get($colors, header-background);
+  border-color: map-get($main-colors, main);
+  font-weight: bold;
+}
+
+.table-main {
+  display: grid;
+}
+
+.table-row {
+  background: map-get($colors, row-background);
+  
+  &:hover {
+    color: map-get($colors, row-selected-text);
+    background: lighten(map-get($colors, row-selected-background), 10%);
+  }
+
+  &.selected {
+    color: map-get($colors, row-selected-text);
+    background: map-get($colors, row-selected-background);
+    font-weight: bold;
+  }
+  
+  &:active {
+    color: map-get($colors, row-selected-text);
+    background: map-get($colors, row-active-background);
+    font-weight: bold;
+  }
+
+}

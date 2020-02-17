@@ -1,0 +1,22 @@
+<div class="list-container">
+    <div *ngIf="searchAvailable">
+      <li class="list-item search-item">
+        <i class="fa fa-search icon"></i> 
+        <input placeholder="Search..." [(ngModel)]="searchPattern" />
+      </li>
+    </div>
+    
+    <div class="list-scrollpanel" customScrollbar>
+      <li @items *ngFor="let item of (items | match : searchPattern : getLabel : label ? label : null); let idx = index;">
+        <div class="list-item"
+            [ngClass]="{'list-item__selected' : selection?.includes(item)}"
+            (click)="onListItemClick($event, item)">
+            <ng-container *ngTemplateOutlet="(customListItemTemplate ? customListItemTemplate : defaultListItemTemplate); context: {$implicit: item}"></ng-container>
+            <ng-template #defaultListItemTemplate>
+              {{getLabel(item, label)}}
+            </ng-template>
+          <ng-content></ng-content>
+        </div>
+      </li>
+    </div>
+</div>

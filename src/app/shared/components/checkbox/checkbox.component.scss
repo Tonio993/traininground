@@ -1,0 +1,55 @@
+$checkbox-size: 1rem;
+
+$colors: (
+  border: rgb(158, 158, 158),
+  unselected-color: #444,
+  unselected-background: white,
+  // selected-color: #fa923f,
+  selected-color: rgb(132, 149, 158),
+  selected-background: #444
+);
+
+.checkbox-main {
+  display: flex;
+  align-items: center;
+}
+
+.checkbox-square {
+  width: $checkbox-size;
+  height: $checkbox-size;
+  margin: 0.5rem;
+  border: 1px solid map-get($colors, border);
+  color: map-get($colors, unselected-color);
+  background: map-get($colors, unselected-background);
+  transition: color 200ms, backgruond 200ms;
+
+  &:hover {
+    .checkbox-flag {
+      display: flex;
+    }
+  }
+  
+  &.checked {
+    color: map-get($colors, selected-color);
+    background: map-get($colors, selected-background);
+    
+    .checkbox-flag {
+      display: flex;
+    }
+
+  }
+
+  .checkbox-flag {
+    display: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+
+    i {
+      font-size: $checkbox-size;
+    }
+
+  }
+
+}

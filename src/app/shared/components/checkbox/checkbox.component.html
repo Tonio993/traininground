@@ -1,0 +1,10 @@
+<div class="checkbox-main">
+  <div class="checkbox-square"
+       [ngClass]="{checked: checked.value}"
+       (click)="checked.value = !checked.value">
+    <div class="checkbox-flag">
+      <i class="fa fa-times"></i>
+    </div>
+  </div>
+  <label *ngIf="label != null">{{ label }}</label>
+</div>

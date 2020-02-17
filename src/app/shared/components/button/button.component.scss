@@ -1,0 +1,60 @@
+$colors: (
+  main: #64b7e4,
+  secondary: #a6b2b9,
+  warn: #ffa600,
+  critical: #e62517
+);
+
+.button__container {
+
+  display: inline-block;
+
+  button {
+    background: map-get($colors, main);
+    border: none;
+    margin: 0.2rem;
+    padding: 0.4rem 0.5rem;
+    display: flex;
+    align-items: baseline;
+    justify-content: center;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+
+    .button__separator {
+      margin: 0 0.2rem;
+    }
+
+    .button__content {
+      flex-grow: 1;
+    }
+
+    &:hover, &:focus {
+      background: darken(map-get($colors, main), 10%);
+    }
+
+    &[color='secondary'] {
+      background: map-get($colors, secondary);
+      &:hover, &:focus {
+        background: darken(map-get($colors, secondary), 10%);
+      }
+    }
+
+    &[color='warn'] {
+      background: map-get($colors, warn);
+      &:hover, &:focus {
+        background: darken(map-get($colors, warn), 10%);
+      }
+    }
+
+    &[color='critical'] {
+      background: map-get($colors, critical);
+      &:hover, &:focus {
+        background: darken(map-get($colors, critical), 10%);
+      }
+    }
+  }
+
+
+}

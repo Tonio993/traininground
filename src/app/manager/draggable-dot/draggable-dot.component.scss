@@ -1,0 +1,13 @@
+.draggable-dot {
+  fill: darkblue;
+  stroke: black;
+  stroke-width: 3px;
+
+  &:hover {
+    fill: blue;
+  }
+
+  &:active {
+    fill: lightblue;
+  }
+}

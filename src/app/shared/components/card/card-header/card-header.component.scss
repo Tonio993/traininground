@@ -1,0 +1,17 @@
+.card-header__container {
+  background: #3f7cad;
+  min-height: 1rem;
+  padding: 0.2rem;
+}
+
+.card-header__layout {
+  display: flex;
+  align-items: center;
+}
+
+.card-header__title {
+  flex-grow: 1;
+  padding: 0 0.5rem;
+  color: white;
+  font-weight: bold;
+}

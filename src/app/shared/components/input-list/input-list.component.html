@@ -1,0 +1,4 @@
+<tg-input *ngFor="let inputItem of inputList; let idx = index; let first = first; let last = last; let len = count"
+              [(ngModel)]="inputList[idx]"
+              (delete)="onDelete(idx)">
+</tg-input>

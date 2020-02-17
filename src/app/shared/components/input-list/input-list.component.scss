@@ -1,0 +1,77 @@
+$colors: (
+  main__background: white,
+  main__border: rgb(158, 158, 158),
+  validation-tag--correct: green,
+  remove-button__background: #e90000,
+  remove-button__color: gray,
+  remove-button__color--hover: white
+);
+
+.input-group {
+  display: flex;
+  flex-wrap: nowrap;
+  margin-bottom: 0.5rem;
+
+  > input {
+    height: 2rem;
+    padding: 1rem 0.5rem;
+    flex-grow: 1;
+    background: map-get($colors, main__background);
+    border: 1px solid map-get($colors, main__border);
+    border-radius: 0.5rem;
+    margin-right: 0;
+
+    &.has-delete-button {
+    border-right: none;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    }
+
+    &.valid {
+      border-left: 5px solid map-get($colors, validation-tag--correct);
+    }
+
+    &::placeholder {
+      color: map-get($colors, main__border);
+    }
+  }
+
+  > .delete-button {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 1rem;
+    color: map-get($colors, main__background);
+    background: map-get($colors, main__background);
+    line-height: 1;
+    vertical-align: middle;
+    border: 1px solid map-get($colors, main__border);;
+    border-left: none;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    font: {
+      size: 1rem;
+      weight: bold;
+    }
+  }
+
+  &:hover {
+    > .delete-button {
+      color: gray;
+      &:hover {
+        color: white;
+        background: map-get($colors, remove-button__background);
+      }
+
+      &:active {
+        color: white;
+        background: darken(map-get($colors, remove-button__background), 5%);
+      }
+
+    }
+
+  }
+
+}

@@ -1,0 +1,26 @@
+<div class="dropdown-placeholder">
+  <div class="dropdown-container placeholder">
+    <div class="dropdown-item"></div>
+  </div>
+  <div #dropdownContainer tabindex="0" class="dropdown-container"
+      [ngClass]="{'open' : open}"
+      [style.maxHeight]="dropdownHeight"
+      (click)="open = !open;"
+      (blur)="onBlur()"
+      (keydown)="onKeyDown($event)">
+      <li [@item]="open || selected == null ? 'open' : 'closed'"
+          (@item.done)="onAnimationDone()"
+          class="dropdown-item dropdown-item__placeholder"
+          [ngClass]="{'dropdown-item__open' : open, 'dropdown-item__selected' : selected == null}"
+          (click)="onItemClick(item)">
+        {{open ? unselectedLabel : placeholder}}
+      </li>
+      <li #dropdownItem [@item]="open || item === selected ? 'open' : 'closed'"
+          *ngFor="let item of items"
+          class="dropdown-item"
+          [ngClass]="{'dropdown-item__open' : open, 'dropdown-item__selected' : selected === item}"
+          (click)="onItemClick(item)">
+        {{getLabel(item)}}
+      </li>
+  </div>
+</div>

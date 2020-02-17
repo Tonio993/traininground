@@ -1,0 +1,81 @@
+$colors: (
+  background: white,
+  border: darkgray,
+  selection: #777,
+  search: #444444,
+  scroll-button: #CCC,
+);
+
+$sizes: (
+  text: 1rem,
+  text-padding: 0.5rem
+);
+
+:host { 
+  display: inline-block;
+}
+
+.dropdown-placeholder {
+  position: relative;
+  
+}
+
+.dropdown-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: map-get($colors, background);
+  border: 1px solid map-get($colors, border);
+  padding: 0;
+  margin: 0;
+  border-radius: 5px;
+  display: flex;
+  overflow-y: overlay;
+  flex-direction: column;
+  cursor: pointer;
+
+  &:focus {
+    border-color: darken(map-get($colors, border), 15);
+  }
+
+  &::-webkit-scrollbar {
+    width: 10px;
+  }
+  
+  &::-webkit-scrollbar-thumb {
+    background: map-get($colors, scroll-button);
+    border-radius: 5px;
+  }
+
+  &.placeholder {
+    position: relative;
+    visibility: hidden;
+  }
+
+  .dropdown-item {
+    display: inline-block;
+    min-height: map-get($sizes, text) + 2 * map-get($sizes, text-padding);
+    font-size: map-get($sizes, text);
+    padding: map-get($sizes, text-padding);
+    transition: color 200ms, background 200ms;
+    user-select: none;
+    
+    &.dropdown-item__placeholder {
+      color: darkgray;
+      
+    }
+  
+    &:hover {
+      background-color: lighten(map-get($colors , selection), 30);
+      color: white;
+    }
+
+    &.dropdown-item__open.dropdown-item__selected {
+      background-color: lighten(map-get($colors , selection), 10);
+      color: white;
+    }
+
+  }
+
+ }

@@ -1,0 +1,9 @@
+<div class="button__container">
+  <button [attr.color]="color">
+    <i *ngIf="icon" class="button__icon" [ngClass]="icon"></i>
+    <div [ngClass]="{'button__separator': icon && ngContent.childNodes.length != 0}"></div>
+    <span #ngContent>
+      <ng-content></ng-content>
+    </span>
+  </button>
+</div>
