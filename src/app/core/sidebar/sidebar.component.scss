@@ -1,0 +1,40 @@
+@import './sidebar.shared.scss';
+
+.sidebar-main {
+  background: map-get($colors, main);
+  width: $sidebar-show-width;
+  height: calc(100% - 3rem);
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  bottom: 0;
+  overflow: scroll;
+}
+
+.sidebar-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+
+  &.scroll-overflow {
+    align-items: start;
+  }
+
+}
+
+.sidebar-list {
+  width: 100%;
+  height: max-content;
+
+  display: flex;
+  flex-direction: column;
+}
+
+app-sidebar-item {
+  width: 100%;
+}
+
+::-webkit-scrollbar { 
+    display: none; 
+}

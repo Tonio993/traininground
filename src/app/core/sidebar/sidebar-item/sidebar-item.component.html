@@ -1,0 +1,8 @@
+<div class="sidebar-item"
+     [routerLink]="item.link? item.link:null"
+     routerLinkActive="active"
+     [routerLinkActiveOptions]="{exact:item.exactRoute}">
+  <div class="sidebar-label">
+    {{item.label}}
+  </div>
+</div>

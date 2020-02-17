@@ -1,0 +1,39 @@
+@import '../navbar.shared.scss';
+
+.navbar-item {
+  color: map-get($colors, secondary);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  padding: 0 0.5rem;
+  height: 100%;
+  font: {
+    weight: bold;
+    family: Orbitron;
+  }
+  user-select: none;
+  transition: color 150ms, background 150ms;
+
+  &:not(.brand) {
+    &:hover:not(.active) {
+      color: lighten(map-get($colors, secondary), $hover-highlight-amount);
+      background: lighten(map-get($colors, main), $hover-highlight-amount);
+    }
+
+    &:active {
+      color: lighten(map-get($colors, secondary), $hover-highlight-amount * 1.5);
+      background: lighten(map-get($colors, main), $hover-highlight-amount);
+    }
+
+    &.active {
+      color: lighten(map-get($colors, secondary), $hover-highlight-amount * 1.5);
+      background: lighten(map-get($colors, main), $hover-highlight-amount);
+    }
+
+  }
+
+}
+
+.brand {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,16 @@
+<div class="sidebar-main"
+     [@sidebarExpand]="animationState"
+     (click)="animationState='active'"
+     (mouseleave)="animationState='inactive'">
+  <div #sidebarMain
+       class="sidebar-container"
+       [ngClass]="{'scroll-overflow': sidebarList.offsetHeight > sidebarMain.offsetHeight}"
+       (click)="animationFadeState='active'"
+       (mouseleave)="animationFadeState='inactive'">
+    <div #sidebarList
+        class="sidebar-list"
+        [@sidebarFade]="animationState">
+      <app-sidebar-item [item]="item" *ngFor="let item of itemList"></app-sidebar-item>
+    </div>
+  </div>
+</div>

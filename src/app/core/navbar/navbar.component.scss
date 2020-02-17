@@ -1,0 +1,69 @@
+@import 'navbar.shared.scss';
+
+.navbar {
+  position: fixed;
+  z-index: 2001;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: $navbar-height;
+  background: map-get($colors, main);
+  vertical-align: middle;
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+
+  .navbar-item {
+    color: map-get($colors, secondary);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 0.5rem;
+    height: 100%;
+    font: {
+      weight: bold;
+      family: Orbitron;
+    }
+    user-select: none;
+    transition: color 150ms, background 150ms;
+
+    &:not(.brand) {
+      &:hover:not(.active) {
+        color: lighten(map-get($colors, secondary), $hover-highlight-amount);
+        background: lighten(map-get($colors, main), $hover-highlight-amount);
+      }
+
+      &:active {
+        color: lighten(map-get($colors, secondary), $hover-highlight-amount * 1.5);
+        background: lighten(map-get($colors, main), $hover-highlight-amount);
+      }
+
+      &.active {
+        color: lighten(map-get($colors, secondary), $hover-highlight-amount * 1.5);
+        background: lighten(map-get($colors, main), $hover-highlight-amount);
+      }
+
+    }
+
+  }
+
+  .brand {
+    font-size: 1.5rem;
+  }
+  
+}
+
+.navbar-dropdown {
+  position: absolute;
+  top: 3rem;
+  background: map-get($colors, main);
+}
+
+.navbar-separator {
+  height: $navbar-height;
+}
+
+.navbar-button {
+  color: map-get($colors, secondary);
+  padding: 0.5rem;
+}

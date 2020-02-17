@@ -1,0 +1,23 @@
+@import '../sidebar.shared.scss';
+
+.sidebar-item {
+  width: 100%;
+  color: map-get($colors, secondary);
+  background: map-get($colors, main);
+
+  &:hover {
+    color: lighten(map-get($colors, secondary), 20);
+    background: lighten(map-get($colors, main), 20);
+  }
+
+  &.active {
+    color: lighten(map-get($colors, secondary), 20);
+    font-weight: bold;
+    background: lighten(map-get($colors, main), 20);
+  }
+}
+
+.sidebar-label {
+  padding: 1rem 2rem;
+  user-select: none;
+}

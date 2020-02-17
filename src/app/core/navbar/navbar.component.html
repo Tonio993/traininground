@@ -1,0 +1,37 @@
+<div *ngIf="settings.isEnabled()">
+  <div class="navbar">
+    <ng-container *ngIf="(layoutChanges | async)?.matches">
+      <div class="navbar-item navbar-button" [ngClass]="{'active': opened}" (click)="opened = !opened">
+        <i class="fa fa-bars fa-2x"></i>
+      </div>
+      <div class="navbar-dropdown" [hidden]="!opened">
+        <div *ngFor="let menuitem of menuitemList"
+            class="navbar-item"
+            [routerLink]="menuitem.link"
+            routerLinkActive="active">
+        <div>
+          {{menuitem.label}}
+        </div>
+      </div>
+
+      </div>
+    </ng-container>
+    <div class="navbar-item brand" 
+          [routerLink]="brand.link">
+      <div>
+        {{brand.label}}
+      </div>
+    </div>
+    <ng-container *ngIf="!(layoutChanges | async)?.matches">
+      <div *ngFor="let menuitem of menuitemList"
+            class="navbar-item"
+            [routerLink]="menuitem.link"
+            routerLinkActive="active">
+        <div>
+          {{menuitem.label}}
+        </div>
+      </div>
+    </ng-container>
+  </div>
+  <div class="navbar-separator"></div>
+</div>
